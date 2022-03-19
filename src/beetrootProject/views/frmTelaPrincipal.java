@@ -3,6 +3,7 @@
  */
 package beetrootProject.views;
 
+import beetrootProject.model.CadastroCliente;
 import beetrootProject.views.frmCadastroCliente;
 
 /**
@@ -29,8 +30,8 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButtonCadastro = new javax.swing.JButton();
-        jButtonBuscarCliente = new javax.swing.JButton();
         jLabelFechar = new javax.swing.JLabel();
+        jButtonBuscarCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 700));
@@ -52,6 +53,16 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jLabelFechar.setFont(new java.awt.Font("Teko SemiBold", 1, 24)); // NOI18N
+        jLabelFechar.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelFechar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelFechar.setText("X");
+        jLabelFechar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelFecharMouseClicked(evt);
+            }
+        });
+
         jButtonBuscarCliente.setBackground(new java.awt.Color(153, 153, 153));
         jButtonBuscarCliente.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButtonBuscarCliente.setForeground(new java.awt.Color(255, 255, 255));
@@ -66,29 +77,19 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabelFechar.setFont(new java.awt.Font("Teko SemiBold", 1, 24)); // NOI18N
-        jLabelFechar.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelFechar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelFechar.setText("X");
-        jLabelFechar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelFecharMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(453, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabelFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(426, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,9 +97,9 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabelFechar)
                 .addGap(43, 43, 43)
                 .addComponent(jButtonCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
+                .addGap(87, 87, 87)
                 .addComponent(jButtonBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(434, Short.MAX_VALUE))
+                .addContainerGap(542, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -113,21 +114,14 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         CadCliente.setVisible(true);
     }//GEN-LAST:event_jButtonCadastroMouseClicked
 
-    private void jButtonBuscarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarClienteMouseClicked
-        // Abro a tela de busca de clientes
-        frmMostrarCadastro mcA = new frmMostrarCadastro();
-        mcA.setVisible(true); 
-        
-        // carrega os dados na jTable quando este frame for aberto
-        String sql = "SELECT * FROM tb_cadastro ORDER BY  ID_TB_CADASTRO DESC";
-        
-        mcA.povoarJtable(sql);
-    }//GEN-LAST:event_jButtonBuscarClienteMouseClicked
-
     private void jLabelFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFecharMouseClicked
         // fechar o form
         System.exit(0);
     }//GEN-LAST:event_jLabelFecharMouseClicked
+
+    private void jButtonBuscarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarClienteMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonBuscarClienteMouseClicked
 
     /**
      * @param args the command line arguments
